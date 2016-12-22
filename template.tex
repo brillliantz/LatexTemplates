@@ -1,0 +1,465 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     _______ _    _  _____       
+%    |__   __| |  | |/ ____|
+%       | |  | |__| | (___  
+%       | |  |  __  |\___ \ 
+%       | |  | |  | |____) |
+%       |_|  |_|  |_|_____/
+%
+%     _               ____  
+%    | |        /\   |  _ \ 
+%    | |       /  \  | |_) |
+%    | |      / /\ \ |  _ < 
+%    | |____ / ____ \| |_) |
+%    |______/_/    \_\____/ 
+%
+% _______ ______ __  __ _____  _            _______ ______ 
+%|__   __|  ____|  \/  |  __ \| |        /\|__   __|  ____|
+%   | |  | |__  | \  / | |__) | |       /  \  | |  | |__   
+%   | |  |  __| | |\/| |  ___/| |      / /\ \ | |  |  __|  
+%   | |  | |____| |  | | |    | |____ / ____ \| |  | |____ 
+%   |_|  |______|_|  |_|_|    |______/_/    \_\_|  |______|
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% DONT CHANGE ANYTHING BEFORE THE "TITLE" SECTION.%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article} % Especially this!
+% _____        _____ _  __          _____ ______  _____ 
+%|  __ \ /\   / ____| |/ /    /\   / ____|  ____|/ ____|
+%| |__) /  \ | |    | ' /    /  \ | |  __| |__  | (___  
+%|  ___/ /\ \| |    |  <    / /\ \| | |_ |  __|  \___ \ 
+%| |  / ____ \ |____| . \  / ____ \ |__| | |____ ____) |
+%|_| /_/    \_\_____|_|\_\/_/    \_\_____|______|_____/ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage[siunitx]{circuitikz}
+\usepackage{tikz}
+\usepackage[colorinlistoftodos, color=orange!50]{todonotes}
+\usepackage{hyperref}
+\usepackage[numbers, square]{natbib}
+\usepackage{fancybox}
+\usepackage{epsfig}
+\usepackage{soul}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage[version=4]{mhchem}
+%------------------- Personalized Packages
+\usepackage{fontspec}
+\usepackage{lipsum}
+\usepackage{subfigure}
+\usepackage{ctex}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage[crop=off]{auto-pst-pdf}% With an onstalled Perl always crop=on!
+%\ifpdf
+%\usepackage{forest}
+%\else
+%\usepackage{pst-barcode}
+%\fi
+%------------------- minted package coding environment
+\usepackage[english]{babel}
+\usepackage{minted}
+\usemintedstyle{vs}
+%------------------- write2tex
+\usepackage{xunicode}
+\usepackage{xltxtra}
+%\usepackage{polyglossia}
+\usepackage{color}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%   _____ _    _  _____ _______ ____  __  __ 
+%  / ____| |  | |/ ____|__   __/ __ \|  \/  |
+% | |    | |  | | (___    | | | |  | | \  / |
+% | |    | |  | |\___ \   | | | |  | | |\/| |
+% | |____| |__| |____) |  | | | |__| | |  | |
+%  \_____|\____/|_____/   |_|  \____/|_|  |_|
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  _____ ____  __  __ __  __          _   _ _____   _____ 
+% / ____/ __ \|  \/  |  \/  |   /\   | \ | |  __ \ / ____|
+%| |   | |  | | \  / | \  / |  /  \  |  \| | |  | | (___  
+%| |   | |  | | |\/| | |\/| | / /\ \ | . ` | |  | |\___ \ 
+%| |___| |__| | |  | | |  | |/ ____ \| |\  | |__| |____) |
+% \_____\____/|_|  |_|_|  |_/_/    \_\_| \_|_____/|_____/ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SYNTAX FOR NEW COMMANDS:
+%\newcommand{\new}{Old command or text}
+
+% EXAMPLE:
+
+\newcommand{\blah}{blah blah blah \dots}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  _______ ______          _____ _    _ ______ _____    %
+% |__   __|  ____|   /\   / ____| |  | |  ____|  __ \   %
+%    | |  | |__     /  \ | |    | |__| | |__  | |__) |  %
+%    | |  |  __|   / /\ \| |    |  __  |  __| |  _  /   %
+%    | |  | |____ / ____ \ |____| |  | | |____| | \ \   %
+%    |_|  |______/_/    \_\_____|_|  |_|______|_|  \_\  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                       %
+%           COMMANDS                SUMMARY             %
+% \clarity{points}{comment} >>> "Clarity of Writing"    %
+% \other{points}{comment}   >>> "Other"                 %
+% \spelling{comment}        >>> "Spelling"              %
+% \units{comment}           >>> "Units"                 %
+% \english{comment}         >>> "Syntax and Grammer"    %
+% \source{comment}          >>> "Sources"               %
+% \concept{comment}         >>> "Concept"               %
+% \missing{comment}         >>> "Missing Content"       %
+% \maths{comment}           >>> "Math"                  %
+% \terms{comment}           >>> "Science Terms"         %
+%                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\marginparwidth}{2.4cm}
+
+
+% NEW COUNTERS
+\newcounter{points}
+\setcounter{points}{100}
+\newcounter{spelling}
+\newcounter{english}
+\newcounter{units}
+\newcounter{other}
+\newcounter{source}
+\newcounter{concept}
+\newcounter{missing}
+\newcounter{math}
+\newcounter{terms}
+\newcounter{clarity}
+
+% COMMANDS
+
+\definecolor{myblue}{rgb}{0.668, 0.805, 0.929}
+\newcommand{\hlb}[2][myblue]{ {\sethlcolor{#1} \hl{#2}} }
+
+\newcommand{\clarity}[2]{[color=CornflowerBlue!50]{CLARITY of WRITING(#1) #2}\addtocounter{points}{#1}
+\addtocounter{clarity}{#1}}
+
+\newcommand{\other}[2]{\todo{OTHER(#1) #2} \addtocounter{points}{#1} \addtocounter{other}{#1}}
+
+\newcommand{\spelling}{\todo[color=CornflowerBlue!50]{SPELLING (-1)} \addtocounter{points}{-1}
+\addtocounter{spelling}{-1}}
+\newcommand{\units}{\todo{UNITS (-1)} \addtocounter{points}{-1}
+\addtocounter{units}{-1}}
+
+\newcommand{\english}{\todo[color=CornflowerBlue!50]{SYNTAX and GRAMMAR (-1)} \addtocounter{points}{-1}
+\addtocounter{english}{-1}}
+
+\newcommand{\source}{\todo{SOURCE(S) (-2)} \addtocounter{points}{-2}
+\addtocounter{source}{-2}}
+\newcommand{\concept}{\todo{CONCEPT (-2)} \addtocounter{points}{-2}
+\addtocounter{concept}{-2}}
+
+\newcommand{\missing}[2]{\todo{MISSING CONTENT (#1) #2} \addtocounter{points}{#1}
+\addtocounter{missing}{#1}}
+
+\newcommand{\maths}{\todo{MATH (-1)} \addtocounter{points}{-1}
+\addtocounter{math}{-1}}
+\newcommand{\terms}{\todo[color=CornflowerBlue!50]{SCIENCE TERMS (-1)} \addtocounter{points}{-1}
+\addtocounter{terms}{-1}}
+
+
+\newcommand{\summary}[1]{
+\begin{mdframed}[nobreak=true]
+\begin{minipage}{\textwidth}
+\vspace{0.5cm}
+\begin{center}
+\Large{Grade Summary} \hrule 
+\end{center} \vspace{0.5cm}
+General Comments: #1
+
+\vspace{0.5cm}
+Possible Points \dotfill 100 \\
+Points Lost (Science Terms) \dotfill \theterms \\
+Points Lost (Syntax and Grammar) \dotfill \theenglish \\
+Points Lost (Spelling) \dotfill \thespelling \\
+Points Lost (Units) \dotfill \theunits \\
+Points Lost (Math) \dotfill \themath \\
+Points Lost (Sources) \dotfill \thesource \\
+Points Lost (Concept) \dotfill \theconcept \\
+Points Lost (Missing Content) \dotfill \themissing \\
+Points Lost (Clarity of Writing) \dotfill \theclarity \\
+Other \dotfill \theother \\[0.5cm]
+\begin{center}
+\large{\textbf{Grade:} \fbox{\thepoints}}
+\end{center}
+\end{minipage}
+\end{mdframed}}
+
+
+%\newcommand\textsubscript[1]{\ensuremath{{}_{\text{#1}}}}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+
+
+%#########################################################
+
+%To use symbols for footnotes
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+%To change footnotes back to numbers uncomment the following line
+%\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+% Enable this command to adjust line spacing for inline math equations.
+% \everymath{\displaystyle}
+
+% _______ _____ _______ _      ______ 
+%|__   __|_   _|__   __| |    |  ____|
+%   | |    | |    | |  | |    | |__   
+%   | |    | |    | |  | |    |  __|  
+%   | |   _| |_   | |  | |____| |____ 
+%   |_|  |_____|  |_|  |______|______|
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+    \normalfont \normalsize 
+    \textsc
+    {\kaishu 南京大学 \quad 匡亚明学院 \\ 
+        近代物理实验（二）} \\
+    [10pt] 
+    \rule{\linewidth}{0.5pt} \\[6pt] 
+    \huge 实验11.4 \quad 矢量网络分析仪测量微波材料的介电常数和磁导率 \\
+    \rule{\linewidth}{2pt}  \\[10pt]
+}
+\author{刘冰楠(141210016)}
+\date{\normalsize 2016年09月29日}
+
+\begin{document}%%%%%%===================================
+
+\maketitle
+\noindent
+实验日期 \dotfill 2016年09月22日 \\
+共同实验者 \dotfill 陈鲲, 陈谦 \\
+指导老师 \dotfill 陈建军 \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%             ______      ____  
+%            |  ____/\   / __ \ 
+%            | |__ /  \ | |  | |
+%            |  __/ /\ \| |  | |
+%            | | / ____ \ |__| |
+%            |_|/_/    \_\___\_\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% Ctrl + / to comment out a group of lines.
+%
+%
+% LIST MORE COMMON COMMMANDS
+% LIST USEFUL WEBSITES FOR TABLES, ETC
+% WHAT TO DO WHEN YOUR CODE WONT COMPILE
+% OVERLEAF SHORTCUTS
+%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% _               ____  
+%| |        /\   |  _ \ 
+%| |       /  \  | |_) |
+%| |      / /\ \ |  _ < 
+%| |____ / ____ \| |_) |
+%|______/_/    \_\____/ 
+%%%%%%%%%%%%%%%%%%%%%%%%
+%  _____ _______       _____ _______ _____ 
+% / ____|__   __|/\   |  __ \__   __/ ____|
+%| (___    | |  /  \  | |__) | | | | (___  
+% \___ \   | | / /\ \ |  _  /  | |  \___ \ 
+% ____) |  | |/ ____ \| | \ \  | |  ____) |
+%|_____/   |_/_/    \_\_|  \_\ |_| |_____/ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% _    _ ______ _____  ______ 
+%| |  | |  ____|  __ \|  ____|
+%| |__| | |__  | |__) | |__   
+%|  __  |  __| |  _  /|  __|  
+%| |  | | |____| | \ \| |____ 
+%|_|  |_|______|_|  \_\______|
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{摘要}
+%#TODO 增加定量描述
+本实验通过了解到X射线的产生、特点和应用；理解X射线管产生连续X射线谱和特征X射线谱的基本原理，了解D8X射线衍射仪的基本原理和使用方法，通过分析软件对测量样品进行定性的物相分析。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{resources/test_sample.png}
+    \caption{test\_sample}
+    \label{fig:test_sample}
+\end{figure}
+\lipsum[1]
+
+
+%这是一个CTEX的utf-8编码例子，{\kaishu 这里是楷体显示}，{\songti 这里是宋体显示}，{\heiti 这里是黑体显示}，{\fangsong 这里是仿宋显示}。
+
+\newpage
+
+%实验的意义，为什么要做。背景，历史
+\section{引言}
+
+
+
+\section{实验目的}
+
+
+
+\section{实验原理}
+
+\section {实验仪器}
+
+
+%#################################################################
+% _____  _____   ____   _____ ______ _____  _    _ _____  ______ 
+%|  __ \|  __ \ / __ \ / ____|  ____|  __ \| |  | |  __ \|  ____|
+%| |__) | |__) | |  | | |    | |__  | |  | | |  | | |__) | |__   
+%|  ___/|  _  /| |  | | |    |  __| | |  | | |  | |  _  /|  __|  
+%| |    | | \ \| |__| | |____| |____| |__| | |__| | | \ \| |____ 
+%|_|    |_|  \_\\____/ \_____|______|_____/ \____/|_|  \_\______|
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section {实验步骤}
+%%%%%%%%%%%%%%%%%%%%%%%
+% FOR A NUMBERED LIST
+% \begin{enumerate}
+% \item Your_Item
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%##################################################################
+% _____       _______       
+%|  __ \   /\|__   __|/\    
+%| |  | | /  \  | |  /  \   
+%| |  | |/ /\ \ | | / /\ \  
+%| |__| / ____ \| |/ ____ \ 
+%|_____/_/    \_\_/_/    \_\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section {数据测量}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TO IMPORT AN IMAGE
+% UPLOAD IT FIRST (HIT THE PROJECT BUTTON TO SHOW FILES)
+% KEEP THE NAME SHORT WITH NO SPACES!
+% TYPE THE FOLLOWING WITH THE NAME OF YOUR FILE
+% DON'T INCLUDE THE FILE EXTENSION
+% \includegraphics[width=\textwidth]{name_of_file}
+% \textwidth makes the picture the width of the paragraphs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TO CREATE A FIGURE WITH A NUMBER AND CAPTION
+% \begin{figure}
+% \includegraphics[width=\textwidth]{image}
+% \caption{Your Caption Goes Here}
+% \label{your_label}
+% \end{figure}
+% REFER TO YOUR FIGURE LATER WITH
+% \ref{your_label}
+% LABELS NEED TO BE ONE WORD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%任何测量都要带着不确定度。所有数据要成表。总结成果，找出问题，提出改进。一方面求得的测量结果假装不知道其真值，求不确定度；另一方面与真值比较看是否在合理范围，所有不合理的要分析原因。回答开头提出的目的
+\section{误差分析和校正}
+
+
+
+%#############################
+% _____ _____  _____  _____ _    _  _____ _____ 
+%|  __ \_   _|/ ____|/ ____| |  | |/ ____/ ____|
+%| |  | || | | (___ | |    | |  | | (___| (___  
+%| |  | || |  \___ \| |    | |  | |\___ \\___ \ 
+%| |__| || |_ ____) | |____| |__| |____) |___) |
+%|_____/_____|_____/ \_____|\____/|_____/_____/ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section {思考题与进一步讨论}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{思考题}
+
+\textbf{1、根据波导传输理论推导s参量与介电常数的关系式。}\\
+
+
+\textbf{2、本实验测得材料的介电常数其主要误差来源是什么？}\\
+
+
+
+%  _____  ____  _    _ _____   _____ ______  _____ 
+% / ____|/ __ \| |  | |  __ \ / ____|  ____|/ ____|
+%| (___ | |  | | |  | | |__) | |    | |__  | (___  
+% \___ \| |  | | |  | |  _  /| |    |  __|  \___ \ 
+% ____) | |__| | |__| | | \ \| |____| |____ ____) |
+%|_____/ \____/ \____/|_|  \_\\_____|______|_____/ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USE NOCITE TO ADD SOURCES TO THE BIBLIOGRAPHY WITHOUT SPECIFICALLY CITING THEM IN THE DOCUMENT
+
+\nocite{modernphyexp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY: %
+
+% Make sure your class *.bib file is uploaded to this project by clicking the project button > add files. Change 'sample' below to the name of your file without the .bib extension.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{plainnat}
+\bibliography{mybib}
+
+% UNCOMMENT THE TWO LINES ABOVE TO ENABLE BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{附录: 所用到的计算机程序代码}
+\subsection*{数据读取}
+\inputminted[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=darkgray,
+fontsize=\footnotesize,
+linenos
+]{python}{Resources/test_sample.py}
+
+\end{document} % NOTHING AFTER THIS LINE IS PART OF THE DOCUMENT
+
+%\begin{figure}[htbp]
+%    \centering
+%    \includegraphics[width=0.7\textwidth]{resources/system.png}
+%    \caption{实验系统示意框图}
+%    \label{fig:system}
+%\end{figure}
+
+% ______ ______ ______ ______ ______ ______ ______ 
+%|______|______|______|______|______|______|______|
+%                  _____  ____  
+%                 / ____|/ __ \ 
+%                | |  __  |  | |
+%                | | |_ | |  | |
+%                | |__| | |__| |
+%                 \_____|\____/ 
+% 
+% _    _  ____  _____  _   _ ______ _______ _____ _ 
+%| |  | |/ __ \|  __ \| \ | |  ____|__   __/ ____| |
+%| |__| | |  | | |__) |  \| | |__     | | | (___ | |
+%|  __  | |  | |  _  /| . ` |  __|    | |  \___ \| |
+%| |  | | |__| | | \ \| |\  | |____   | |  ____) |_|
+%|_|  |_|\____/|_|  \_\_| \_|______|  |_| |_____/(_)
+%
+% ______ ______ ______ ______ ______ ______ ______ 
+%|______|______|______|______|______|______|______|
